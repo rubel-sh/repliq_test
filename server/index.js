@@ -30,6 +30,9 @@ connectDB();
 
 // Database Collections
 const usersCollection = client.db("repliq_practical").collection("users");
+const customersCollection = client
+  .db("repliq_practical")
+  .collection("customers");
 
 // Server Running
 app.get("/", async (req, res) => {
@@ -64,6 +67,16 @@ app.get("/api/login", async (req, res) => {
     return res.send({ accessToken: token });
   }
   res.status(403).send({ accessToken: "" });
+});
+
+// get all customers
+app.get("/api/customers", async (req, res) => {
+  try {
+    const customers = await customersCollection.find({}).toArray();
+    res.send(customers);
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 app.listen(PORT, () => "Server running on port" + PORT);
