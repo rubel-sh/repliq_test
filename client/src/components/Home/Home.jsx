@@ -1,7 +1,12 @@
 import React from "react";
+import Container from "../../sharedComponents/basicComponents/Container";
 
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <Container>
+      <p>Home</p>
+    </Container>
+  );
 };
 
 export default Home;
