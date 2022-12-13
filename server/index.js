@@ -90,4 +90,16 @@ app.get("/api/orders", async (req, res) => {
   }
 });
 
+// get received payment orders
+app.get("/api/payments", async (req, res) => {
+  try {
+    const paymentComplete = await ordersCollection
+      .find({ payment_status: "PAID" })
+      .toArray();
+    res.send(paymentComplete);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 app.listen(PORT, () => "Server running on port" + PORT);
