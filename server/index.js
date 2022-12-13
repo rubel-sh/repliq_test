@@ -30,6 +30,7 @@ connectDB();
 
 // Database Collections
 const usersCollection = client.db("repliq_practical").collection("users");
+const ordersCollection = client.db("repliq_practical").collection("orders");
 const customersCollection = client
   .db("repliq_practical")
   .collection("customers");
@@ -73,6 +74,16 @@ app.get("/api/login", async (req, res) => {
 app.get("/api/customers", async (req, res) => {
   try {
     const customers = await customersCollection.find({}).toArray();
+    res.send(customers);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+// get all orders
+app.get("/api/orders", async (req, res) => {
+  try {
+    const customers = await ordersCollection.find({}).toArray();
     res.send(customers);
   } catch (err) {
     console.log(err);
