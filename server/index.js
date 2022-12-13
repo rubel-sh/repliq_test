@@ -30,6 +30,7 @@ connectDB();
 
 // Database Collections
 const usersCollection = client.db("repliq_practical").collection("users");
+const productsCollection = client.db("repliq_practical").collection("products");
 const ordersCollection = client.db("repliq_practical").collection("orders");
 const customersCollection = client
   .db("repliq_practical")
@@ -97,6 +98,16 @@ app.get("/api/payments", async (req, res) => {
       .find({ payment_status: "PAID" })
       .toArray();
     res.send(paymentComplete);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+// get all products
+app.get("/api/products", async (req, res) => {
+  try {
+    const customers = await productsCollection.find({}).toArray();
+    res.send(customers);
   } catch (err) {
     console.log(err);
   }
