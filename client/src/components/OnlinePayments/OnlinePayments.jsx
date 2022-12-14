@@ -3,8 +3,11 @@ import Container from "../../sharedComponents/basicComponents/Container";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Title from "../../sharedComponents/basicComponents/Title";
+import useTitle from "../../hooks/useTitle";
 
 const OnlinePayments = () => {
+  // Change Title
+  useTitle("Payments");
   // get CUSTOMER LISTS from server
   const { data: payments, isLoading } = useQuery({
     queryKey: ["customers"],

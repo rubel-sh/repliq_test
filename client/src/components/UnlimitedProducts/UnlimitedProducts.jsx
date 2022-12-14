@@ -5,8 +5,11 @@ import axios from "axios";
 import Title from "../../sharedComponents/basicComponents/Title";
 import { RiMenu3Line } from "react-icons/ri";
 import { useState } from "react";
+import useTitle from "../../hooks/useTitle";
 
 const UnlimitedProducts = () => {
+  // change title
+  useTitle("Products");
   // get CUSTOMER LISTS from server
   const { data: products, isLoading } = useQuery({
     queryKey: ["products"],

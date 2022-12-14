@@ -6,9 +6,9 @@ import { NavLink } from "react-router-dom";
 const NavigationBar = () => {
   return (
     <div className="bg-white">
-      <Container>
-        <Navbar fluid={true} rounded={true} className="mb-10 ">
-          <Navbar.Brand href="https://flowbite.com/">
+      <div className="max-w-7xl mx-auto p-4 lg:p-0 ">
+        <Navbar fluid={true} rounded={true} className=" ">
+          <Navbar.Brand href="/">
             <img
               src="https://xyz.xyz/assets/images/xyzxyz-logo.svg"
               className="mr-3 h-6 sm:h-9"
@@ -26,7 +26,7 @@ const NavigationBar = () => {
             <NavLink to="/unlimitedproducts">Unlimited Products</NavLink>
           </Navbar.Collapse>
         </Navbar>
-      </Container>
+      </div>
     </div>
   );
 };
