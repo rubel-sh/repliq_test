@@ -42,11 +42,12 @@ app.get("/", async (req, res) => {
 });
 
 // Create user using phone and password
-app.post("/api/register", async (req, res) => {
+app.put("/api/register", async (req, res) => {
   try {
     const phone = req.body.phone;
     const password = req.body.password;
     const query = { phone, password };
+    console.log(query);
     const createdUser = await usersCollection.insertOne(query);
     res.send(createdUser);
   } catch (err) {
