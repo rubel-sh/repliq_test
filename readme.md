@@ -1,5 +1,7 @@
 ## Live Preview
 
+https://repliqtestsubmission.netlify.app/
+
 ## Installation
 
 1. Clone the repository
