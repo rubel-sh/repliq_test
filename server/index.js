@@ -56,7 +56,7 @@ app.put("/api/register", async (req, res) => {
 });
 
 // Generate JWT token for sign in
-app.get("/api/login", async (req, res) => {
+app.post("/api/login", async (req, res) => {
   const phone = req.body.phone;
   const password = req.body.password;
   const query = { phone, password };

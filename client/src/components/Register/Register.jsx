@@ -84,7 +84,6 @@ const Register = () => {
                 required={true}
               />
             </div>
-            {/* Email */}
 
             <Button
               type="submit"
