@@ -13,9 +13,9 @@ https://repliqtestsubmission.netlify.app/
 
 1. All content are stored in express server as well as account data.
 2. JWT Token is generated after successful login
-3. Three of the Views are implemented
+3. Three of the given Views are implemented
 4. axios, tailwind, tanstack queries, react-router-dom,react-hot-toast,react-icons technologies are used
 
 ## About Server
 
-1. Server side is created usong Mongodb, Node and express
+1. Server side is created using Mongodb, Node and express
