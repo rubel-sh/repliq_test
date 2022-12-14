@@ -6,7 +6,7 @@ import { TokenContext } from "../../context/TokenProvider";
 const NavigationBar = () => {
   // const [token, setToken] = useState("");
   // const token = localStorage.getItem("repliqToken");
-  const { token } = useContext(TokenContext);
+  const { token, setToken } = useContext(TokenContext);
   console.log(token);
   return (
     <div className="bg-white">
@@ -28,6 +28,9 @@ const NavigationBar = () => {
                 <NavLink to="/customerlists">Customer Lists</NavLink>
                 <NavLink to="/onlinepayments">Online Payments</NavLink>
                 <NavLink to="/unlimitedproducts">Unlimited Productss</NavLink>
+                <NavLink to="/login" onClick={() => setToken("")}>
+                  Logout
+                </NavLink>
               </>
             ) : (
               <NavLink to="/register">Join Now</NavLink>

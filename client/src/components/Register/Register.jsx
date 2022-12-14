@@ -3,7 +3,7 @@ import useTitle from "../../hooks/useTitle";
 import axios from "axios";
 import { Button, Label } from "flowbite-react";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
   useTitle("");
@@ -91,6 +91,7 @@ const Register = () => {
             >
               Sign Up
             </Button>
+            <Link to="/login">Already Signed In ?</Link>
           </form>
         </div>
       </div>

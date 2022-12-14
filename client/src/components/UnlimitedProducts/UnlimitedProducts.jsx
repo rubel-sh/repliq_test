@@ -51,7 +51,9 @@ const PaymentCard = ({ info }) => {
           {/* Name, units, price ... */}
           <div className="flex flex-col justify-between">
             <p className="text-lg text-slate-600 font-medium">{name}</p>
-            <small className="text-lg text-slate-400">{units} Units</small>
+            <small className="text-lg text-slate-400 text-sm">
+              {units} Units
+            </small>
             <p className="text-lg text-slate-600 font-bold">{price} tk</p>
             <small
               className={`${
