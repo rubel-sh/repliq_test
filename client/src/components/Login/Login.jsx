@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import useTitle from "../../hooks/useTitle";
 import axios from "axios";
 import { Button, Label } from "flowbite-react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { TokenContext } from "../../context/TokenProvider";
 
 const Login = () => {
   useTitle("");
+  const { token, setToken } = useContext(TokenContext);
+  console.log(token);
   const navigate = useNavigate();
-
   const handleRegistration = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -22,11 +24,15 @@ const Login = () => {
         password,
       })
       .then((data) => {
-        if (data.data?.accessToken) {
+        if (data.data.accessToken) {
           toast.success("Login Success, JWT token saved to localstorage", {
             duration: 4000,
           });
-          return localStorage.setItem("repliqToken", data.data.accessToken);
+          localStorage.setItem("repliqToken", data.data.accessToken);
+          setToken(localStorage.getItem("repliqToken"));
+          navigate("/manageorders");
+          console.log("navigated");
+          return;
         }
         localStorage.setItem("repliqToken", "");
         toast.error("Login Failed, Please try again");

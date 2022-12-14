@@ -7,6 +7,7 @@ import OnlinePayments from "../components/OnlinePayments/OnlinePayments";
 import Register from "../components/Register/Register";
 import UnlimitedProducts from "../components/UnlimitedProducts/UnlimitedProducts";
 import MainLayout from "../layout/MainLayout";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -19,19 +20,35 @@ const router = createBrowserRouter([
       },
       {
         path: "/manageorders",
-        element: <ManageOrders />,
+        element: (
+          <PrivateRoute>
+            <ManageOrders />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/customerlists",
-        element: <CustomerLists />,
+        element: (
+          <PrivateRoute>
+            <CustomerLists />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/onlinepayments",
-        element: <OnlinePayments />,
+        element: (
+          <PrivateRoute>
+            <OnlinePayments />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/unlimitedproducts",
-        element: <UnlimitedProducts />,
+        element: (
+          <PrivateRoute>
+            <UnlimitedProducts />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/register",

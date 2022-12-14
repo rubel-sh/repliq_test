@@ -1,9 +1,13 @@
-import React from "react";
-import { Button, Navbar } from "flowbite-react";
-import Container from "../basicComponents/Container";
+import React, { useContext } from "react";
+import { Navbar } from "flowbite-react";
 import { NavLink } from "react-router-dom";
+import { TokenContext } from "../../context/TokenProvider";
 
 const NavigationBar = () => {
+  // const [token, setToken] = useState("");
+  // const token = localStorage.getItem("repliqToken");
+  const { token } = useContext(TokenContext);
+  console.log(token);
   return (
     <div className="bg-white">
       <div className="max-w-7xl mx-auto p-4 lg:p-0 ">
@@ -17,13 +21,17 @@ const NavigationBar = () => {
           </Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse>
-            <NavLink to="/" active={true}>
-              Home
-            </NavLink>
-            <NavLink to="/manageorders">Manage Orders</NavLink>
-            <NavLink to="/customerlists">Customer Lists</NavLink>
-            <NavLink to="/onlinepayments">Online Payments</NavLink>
-            <NavLink to="/unlimitedproducts">Unlimited Products</NavLink>
+            <NavLink to="/">Home</NavLink>
+            {token ? (
+              <>
+                <NavLink to="/manageorders">Manage Orders</NavLink>
+                <NavLink to="/customerlists">Customer Lists</NavLink>
+                <NavLink to="/onlinepayments">Online Payments</NavLink>
+                <NavLink to="/unlimitedproducts">Unlimited Productss</NavLink>
+              </>
+            ) : (
+              <NavLink to="/register">Join Now</NavLink>
+            )}
           </Navbar.Collapse>
         </Navbar>
       </div>
